@@ -50,7 +50,7 @@
   {
    "id": "chicken",
    "en": "Chicken",
-   "he": "תרנגול",
+   "he": "תרנגולת",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -120,7 +120,7 @@
   {
    "id": "llama",
    "en": "Llama",
-   "he": "למה",
+   "he": "לאמה",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -204,7 +204,7 @@
   {
    "id": "ocelot",
    "en": "Ocelot",
-   "he": "חתול ביצות",
+   "he": "אוצלוט",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -358,7 +358,7 @@
   {
    "id": "glow_squid",
    "en": "Glow Squid",
-   "he": "דיונון זוהר",
+   "he": "גלואו סקוויד",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -400,7 +400,7 @@
   {
    "id": "villager",
    "en": "Villager",
-   "he": "כפרי",
+   "he": "וילג'ר",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -414,7 +414,7 @@
   {
    "id": "iron_golem",
    "en": "Iron Golem",
-   "he": "גולם ברזל",
+   "he": "איירון גולם",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -428,7 +428,7 @@
   {
    "id": "snow_golem",
    "en": "Snow Golem",
-   "he": "גולם שלג",
+   "he": "סנואו גולם",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -442,7 +442,7 @@
   {
    "id": "copper_golem",
    "en": "Copper Golem",
-   "he": "גולם נחושת",
+   "he": "קופר גולם",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -498,7 +498,7 @@
   {
    "id": "cave_spider",
    "en": "Cave Spider",
-   "he": "עכביש מערות",
+   "he": "קייב ספיידר",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -526,7 +526,7 @@
   {
    "id": "slime",
    "en": "Slime",
-   "he": "רפש",
+   "he": "סליים",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -568,7 +568,7 @@
   {
    "id": "stray",
    "en": "Stray",
-   "he": "תועה",
+   "he": "סטריי",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -582,7 +582,7 @@
   {
    "id": "bogged",
    "en": "Bogged",
-   "he": "שקוע",
+   "he": "בוגד",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -596,7 +596,7 @@
   {
    "id": "drowned",
    "en": "Drowned",
-   "he": "טבוע",
+   "he": "דראונד",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -610,7 +610,7 @@
   {
    "id": "pillager",
    "en": "Pillager",
-   "he": "שודד כפרים",
+   "he": "פילג'ר",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -624,7 +624,7 @@
   {
    "id": "vindicator",
    "en": "Vindicator",
-   "he": "מרטש",
+   "he": "וינדיקייטור",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -638,7 +638,7 @@
   {
    "id": "evoker",
    "en": "Evoker",
-   "he": "מעורר",
+   "he": "אבוקר",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -694,7 +694,7 @@
   {
    "id": "armadillo",
    "en": "Armadillo",
-   "he": "ארמדיל",
+   "he": "ארמדילו",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -708,7 +708,7 @@
   {
    "id": "sniffer",
    "en": "Sniffer",
-   "he": "רחרחן",
+   "he": "סניפר",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -722,7 +722,7 @@
   {
    "id": "allay",
    "en": "Allay",
-   "he": "אלאיי",
+   "he": "אליי",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -736,7 +736,7 @@
   {
    "id": "happy_ghast",
    "en": "Happy Ghast",
-   "he": "גאסט שמח",
+   "he": "הפי גאסט",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -764,7 +764,7 @@
   {
    "id": "magma_cube",
    "en": "Magma Cube",
-   "he": "קוביית מאגמה",
+   "he": "מאגמה קיוב",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -792,7 +792,7 @@
   {
    "id": "zombie_nautilus",
    "en": "Zombie Nautilus",
-   "he": "נאוטילוס זומבי",
+   "he": "זומבי נאוטילוס",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -806,7 +806,7 @@
   {
    "id": "camel_husk",
    "en": "Camel Husk",
-   "he": "גמל האסק",
+   "he": "קאמל האסק",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -848,7 +848,7 @@
   {
    "id": "skeleton_horse",
    "en": "Skeleton Horse",
-   "he": "שלד סוס",
+   "he": "סוס שלד",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -862,21 +862,21 @@
   {
    "id": "zombie_villager",
    "en": "Zombie Villager",
-   "he": "זומבי כפרי",
+   "he": "זומבי וילג'ר",
    "tier": 2,
    "wing": "overworld",
    "egg": [
     "#563c33",
     "#799c65"
    ],
-   "how": "כפרי + זומבי על Hard",
+   "how": "וילג'ר + זומבי על Hard",
    "caught": false,
    "caught_at": null
   },
   {
    "id": "zombified_piglin",
    "en": "Zombified Piglin",
-   "he": "פיגלין זומבי",
+   "he": "זומבי פיגלין",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -932,7 +932,7 @@
   {
    "id": "silverfish",
    "en": "Silverfish",
-   "he": "דג כסף",
+   "he": "סילברפיש",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -960,7 +960,7 @@
   {
    "id": "trader_llama",
    "en": "Trader Llama",
-   "he": "למה של סוחר",
+   "he": "טריידר לאמה",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -974,7 +974,7 @@
   {
    "id": "sulfur_cube",
    "en": "Sulfur Cube",
-   "he": "קוביית גופרית",
+   "he": "סולפר קיוב",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -988,7 +988,7 @@
   {
    "id": "wither_skeleton",
    "en": "Wither Skeleton",
-   "he": "שלד וויד'ר",
+   "he": "ווית'ר סקלטון",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -1030,7 +1030,7 @@
   {
    "id": "piglin_brute",
    "en": "Piglin Brute",
-   "he": "פיגלין פראי",
+   "he": "פיגלין ברוט",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -1058,7 +1058,7 @@
   {
    "id": "ravager",
    "en": "Ravager",
-   "he": "הרסן",
+   "he": "רבאג'ר",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -1072,7 +1072,7 @@
   {
    "id": "guardian",
    "en": "Guardian",
-   "he": "שומר",
+   "he": "גרדיאן",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -1114,7 +1114,7 @@
   {
    "id": "breeze",
    "en": "Breeze",
-   "he": "בריזה",
+   "he": "בריז",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1128,7 +1128,7 @@
   {
    "id": "phantom",
    "en": "Phantom",
-   "he": "פאנטום",
+   "he": "פנטום",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1142,7 +1142,7 @@
   {
    "id": "elder_guardian",
    "en": "Elder Guardian",
-   "he": "שומר בכיר",
+   "he": "אלדר גרדיאן",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1170,7 +1170,7 @@
   {
    "id": "creaking",
    "en": "Creaking",
-   "he": "החורק",
+   "he": "קריקינג",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1184,7 +1184,7 @@
   {
    "id": "wither",
    "en": "Wither",
-   "he": "וויד'ר",
+   "he": "ווית'ר",
    "tier": 4,
    "wing": "overworld",
    "egg": [
@@ -1198,7 +1198,7 @@
   {
    "id": "wandering_trader",
    "en": "Wandering Trader",
-   "he": "סוחר נודד",
+   "he": "וונדרינג טריידר",
    "tier": 4,
    "wing": "overworld",
    "egg": [
@@ -1212,7 +1212,7 @@
   {
    "id": "ender_dragon",
    "en": "Ender Dragon",
-   "he": "דרקון אנדר",
+   "he": "אנדר דרגון",
    "tier": 0,
    "wing": "end",
    "egg": [
@@ -1226,7 +1226,7 @@
   {
    "id": "vex",
    "en": "Vex",
-   "he": "ווקס",
+   "he": "וקס",
    "tier": 0,
    "wing": "overworld",
    "egg": [
