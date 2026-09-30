@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.png">
 <link rel="preload" href="fonts/unifont-he.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="eggs.css">
+<link rel="stylesheet" href="mobs.css">
 <style>
   :root {
     --dirt: #3a2a1e;
@@ -135,12 +135,7 @@
   .slot:hover, .slot[aria-current="true"] { background: #a6a6a6; }
   .slot .name { text-align: center; overflow-wrap: anywhere; }
   .slot:not(.got) .name { color: #d6d6d6; }
-  .slot .q {
-    position: absolute; inset: 0; display: grid; place-items: center;
-    font: 400 16px var(--digits); color: #d6d6d6; text-shadow: 2px 2px 0 #000;
-  }
-  .egg-box { position: relative; display: block; }
-  .slot .egg { --s: 5px; }
+  .slot .mob { --w: 72px; }
   .empty { color: #6b6b6b; margin: 6px 0 0; }
 
   /* ---------- inspector: Minecraft tooltip ---------- */
@@ -154,7 +149,8 @@
     padding: 14px 18px;
     display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: center;
   }
-  .tip .egg { --s: 5px; grid-row: span 3; }
+  .tip .mob { --w: 96px; grid-column: 1; grid-row: 1 / span 3; }
+  .tip > :not(.mob) { grid-column: 2; }
   .tip h3 { margin: 0; font: 400 32px/1.2 var(--pixel); }
   .tip[hidden] { display: none; }
   .tip p { margin: 0; color: #d0c8ff; }
@@ -168,8 +164,7 @@
   @media (max-width: 480px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
     h1 { font-size: 32px; }
-    .tip { grid-template-columns: 1fr; }
-    .tip .egg { display: none; }
+    .tip .mob { --w: 64px; }
   }
   @media (prefers-reduced-motion: reduce) { .xp-fill { transition: none; } }
 </style>
@@ -201,7 +196,7 @@
   </footer>
 </div>
 
-<script src="eggs.js"></script>
+<script src="mobs.js"></script>
 <script>
 const TIERS = [
   [1, "קלים"], [2, "בינוניים"], [3, "קשים"], [4, "בונוס"], [0, "בלתי אפשרי"],
@@ -250,11 +245,7 @@ function render() {
       b.className = "slot" + (m.caught ? " got" : "");
       b.setAttribute("aria-label", `${label(m)}, ${m.caught ? "נתפס" : "עוד לא נתפס"}`);
       if (selected === m.id) b.setAttribute("aria-current", "true");
-      const box = document.createElement("span");
-      box.className = "egg-box";
-      box.append(makeEgg(m, !m.caught));
-      if (!m.caught) box.insertAdjacentHTML("beforeend", '<span class="q" aria-hidden="true">?</span>');
-      b.append(box);
+      b.append(makeMob(m, !m.caught));
       b.insertAdjacentHTML("beforeend", `<span class="name" dir="ltr">${label(m)}</span>`);
       b.addEventListener("click", () => select(m.id));
       b.addEventListener("mouseenter", () => showTip(m));
@@ -279,7 +270,7 @@ function showTip(m) {
   const tip = document.getElementById("tip");
   const wing = m.wing === "nether" ? " · אגף הנת'ר" : m.wing === "end" ? " · האנד" : "";
   tip.innerHTML = "";
-  tip.append(makeEgg(m, !m.caught));
+  tip.append(makeMob(m, !m.caught));
   tip.insertAdjacentHTML("beforeend", `
     <h3><bdi dir="ltr">${label(m)}</bdi></h3>
     <p class="st ${m.caught ? "got" : ""}">${m.caught ? "נתפס " + ago(m.caught_at) : "עוד לא נתפס"}${wing}</p>

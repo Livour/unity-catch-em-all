@@ -1,0 +1,10 @@
+/* Mob renders from the Minecraft Wiki (docs/mobs/<id>.webp).
+   Not caught yet = black silhouette; caught = full color. */
+.mob {
+  display: block;
+  width: var(--w, 64px);
+  height: var(--w, 64px);
+  object-fit: contain;
+  flex: none;
+}
+.mob.unknown { filter: brightness(0); opacity: .6; }

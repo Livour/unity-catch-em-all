@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Zoo overlay</title>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="eggs.css">
+<link rel="stylesheet" href="mobs.css">
 <style>
   /* OBS browser source: 1920x1080, transparent background */
   html, body { margin: 0; background: transparent; overflow: hidden; }
@@ -45,7 +45,7 @@
     transition: transform .45s cubic-bezier(.2,1.4,.4,1);
   }
   .toast.show { transform: translateX(0); }
-  .toast .egg { --s: 7px; }
+  .toast .mob { --w: 128px; }
   .toast .k { font: 400 32px/1 "Unifont", monospace; color: #ffaa00; }
   .toast .n { font: 400 48px/1.1 "Unifont", monospace; }
   .toast .e { font-size: 32px; color: #aaa; }
@@ -66,7 +66,7 @@
   <div><div class="k">נתפס!</div><div class="n" id="tname"></div><div class="e" id="ten"></div></div>
 </div>
 
-<script src="eggs.js"></script>
+<script src="mobs.js"></script>
 <script>
 const params = new URLSearchParams(location.search);
 if (params.get("scale")) document.documentElement.style.setProperty("--scale", params.get("scale"));
@@ -88,7 +88,7 @@ function paint(s) {
 
 function toast(m) {
   const box = document.getElementById("tegg");
-  box.replaceChildren(makeEgg(m, false));
+  box.replaceChildren(makeMob(m, false));
   document.getElementById("tname").textContent = m.en;
   document.getElementById("ten").textContent = `(${m.he})`;
   const t = document.getElementById("toast");

@@ -1,0 +1,3 @@
+Mob renders: Minecraft Wiki (https://minecraft.wiki), lead image of each mob's page,
+first frame, trimmed and resized to 160px. Minecraft content © Mojang Studios / Microsoft,
+used for a non-commercial fan project under the Minecraft Usage Guidelines.
