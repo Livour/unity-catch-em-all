@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שליטה: גן החיות</title>
+<link rel="stylesheet" href="/eggs.css">
+<style>
+  body { margin: 0; padding: 16px; background: #2b2b2b; color: #fff; font: 16px/1.4 "Rubik", system-ui, "Segoe UI", sans-serif; }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; position: sticky; top: 0; background: #2b2b2b; padding-block: 8px; z-index: 1; }
+  h1 { font-size: 1.2rem; margin: 0; }
+  #count { color: #80ff20; font-weight: 700; }
+  input { font: inherit; padding: 8px 10px; min-width: 220px; background: #111; color: #fff; border: 2px solid #555; }
+  button { font: inherit; cursor: pointer; }
+  .undo { background: #444; color: #fff; border: 2px solid #777; padding: 6px 12px; }
+  #status { color: #aaa; font-size: .9rem; margin-inline-start: auto; }
+  h2 { font-size: 1rem; color: #aaa; margin: 18px 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+  .m { display: flex; align-items: center; gap: 10px; text-align: start; background: #3a3a3a; color: #ddd; border: 2px solid #555; padding: 8px; }
+  .m .egg { --s: 3px; }
+  .m.got { background: #1f4a0e; border-color: #80ff20; color: #fff; }
+  .m:focus-visible { outline: 3px solid #ffaa00; }
+  .m small { display: block; color: #999; font-size: .75rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>גן החיות: <span id="count"></span></h1>
+  <input id="q" type="search" placeholder="חיפוש מוב (עברית או English)" autofocus>
+  <button class="undo" id="undo" disabled>ביטול פעולה אחרונה</button>
+  <span id="status"></span>
+</header>
+<div id="list"></div>
+<script src="/eggs.js"></script>
+<script>
+const TIERS = [[1, "קלים"], [2, "בינוניים"], [3, "קשים"], [4, "בונוס"], [0, "בלתי אפשרי"]];
+let state, undoStack = [];
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {});
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+function render() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const goal = state.mobs.filter(m => m.tier >= 1 && m.tier <= 3);
+  document.getElementById("count").textContent = `${goal.filter(m => m.caught).length} / ${goal.length}`;
+  const host = document.getElementById("list");
+  host.innerHTML = "";
+  for (const [tier, label] of TIERS) {
+    const mobs = state.mobs.filter(m => m.tier === tier && (!q || m.he.includes(q) || m.en.toLowerCase().includes(q) || m.id.includes(q)));
+    if (!mobs.length) continue;
+    host.insertAdjacentHTML("beforeend", `<h2>${label}</h2>`);
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    for (const m of mobs) {
+      const b = document.createElement("button");
+      b.className = "m" + (m.caught ? " got" : "");
+      b.append(makeEgg(m, false));
+      b.insertAdjacentHTML("beforeend", `<span>${m.he}<small>${m.en}</small></span>`);
+      b.title = m.caught ? "לחיצה תסמן כלא נתפס" : "לחיצה תסמן כנתפס";
+      b.onclick = () => toggle(m.id);
+      grid.append(b);
+    }
+    host.append(grid);
+  }
+}
+
+async function toggle(id) {
+  try {
+    state = await api("/api/toggle", { id });
+    undoStack.push(id);
+    document.getElementById("undo").disabled = false;
+    const m = state.mobs.find(x => x.id === id);
+    setStatus(`${m.he}: ${m.caught ? "נתפס" : "סומן כלא נתפס"}`);
+    render();
+  } catch (e) { setStatus("השמירה נכשלה: " + e.message); }
+}
+
+document.getElementById("undo").onclick = async () => {
+  const id = undoStack.pop();
+  if (id) { await toggle(id); undoStack.pop(); }
+  document.getElementById("undo").disabled = !undoStack.length;
+};
+document.getElementById("q").oninput = render;
+document.getElementById("q").onkeydown = e => {
+  if (e.key === "Enter") { const first = document.querySelector(".m"); if (first) first.click(); e.target.select(); }
+};
+
+function setStatus(t) { document.getElementById("status").textContent = t; }
+async function pollPush() {
+  try { const s = await api("/api/push-status"); if (s.message) setStatus(s.message); } catch (e) {}
+}
+api("/api/state").then(s => { state = s; render(); });
+setInterval(pollPush, 5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,1241 @@
+{
+ "title": "גן החיות של יוניטי",
+ "site_url": "https://livour.github.io/unity-zoo/",
+ "channel_url": "https://www.youtube.com/@livourmana",
+ "updated": null,
+ "last_caught": null,
+ "mobs": [
+  {
+   "id": "cow",
+   "en": "Cow",
+   "he": "פרה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#443626",
+    "#a1a1a1"
+   ],
+   "how": "רצועה או חיטה ביד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "pig",
+   "en": "Pig",
+   "he": "חזיר",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#f0a5a2",
+    "#db635f"
+   ],
+   "how": "רצועה או גזר ביד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "sheep",
+   "en": "Sheep",
+   "he": "כבשה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#e7e7e7",
+    "#ffb5b5"
+   ],
+   "how": "רצועה או חיטה ביד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "chicken",
+   "en": "Chicken",
+   "he": "תרנגולת",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#a1a1a1",
+    "#ff0000"
+   ],
+   "how": "זרעים ביד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "rabbit",
+   "en": "Rabbit",
+   "he": "ארנב",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#995f40",
+    "#734831"
+   ],
+   "how": "רצועה או גזר ביד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "horse",
+   "en": "Horse",
+   "he": "סוס",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#c09e7d",
+    "#eee500"
+   ],
+   "how": "לאלף ולרכוב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "donkey",
+   "en": "Donkey",
+   "he": "חמור",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#534539",
+    "#867566"
+   ],
+   "how": "לאלף ולרכוב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "mule",
+   "en": "Mule",
+   "he": "פרד",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#1b0200",
+    "#51331d"
+   ],
+   "how": "הכלאה של סוס וחמור",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "llama",
+   "en": "Llama",
+   "he": "לאמה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#c09e7d",
+    "#995f40"
+   ],
+   "how": "רצועה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "camel",
+   "en": "Camel",
+   "he": "גמל",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#fcc369",
+    "#cb9337"
+   ],
+   "how": "לרכוב עליו לגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "goat",
+   "en": "Goat",
+   "he": "עז",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#a5947c",
+    "#55493e"
+   ],
+   "how": "רצועה, להיזהר מנגיחות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "cat",
+   "en": "Cat",
+   "he": "חתול",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#efc88e",
+    "#957256"
+   ],
+   "how": "לאלף עם דג ולהושיב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "wolf",
+   "en": "Wolf",
+   "he": "זאב",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#d7d3d3",
+    "#ceaf96"
+   ],
+   "how": "לאלף עם עצם ולהושיב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "fox",
+   "en": "Fox",
+   "he": "שועל",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#d5b69f",
+    "#cc6920"
+   ],
+   "how": "רצועה, או להרביע בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "ocelot",
+   "en": "Ocelot",
+   "he": "אוצלוט",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#efde7d",
+    "#564434"
+   ],
+   "how": "רצועה מהג'ונגל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "parrot",
+   "en": "Parrot",
+   "he": "תוכי",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#0da70b",
+    "#ff0000"
+   ],
+   "how": "לאלף עם זרעים ולהושיב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "bee",
+   "en": "Bee",
+   "he": "דבורה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#edc343",
+    "#43241b"
+   ],
+   "how": "פרח ביד, או להעביר קן עם Silk Touch",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "frog",
+   "en": "Frog",
+   "he": "צפרדע",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#d07444",
+    "#ffc77c"
+   ],
+   "how": "ראשן בדלי שגדל בגן. צריך תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "tadpole",
+   "en": "Tadpole",
+   "he": "ראשן",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#6d533d",
+    "#160a00"
+   ],
+   "how": "דלי. להאכיל בשן ארי זהובה שלא יגדל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "axolotl",
+   "en": "Axolotl",
+   "he": "אקסולוטל",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#fbc1e3",
+    "#a62d74"
+   ],
+   "how": "דלי מהמערות השופעות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "cod",
+   "en": "Cod",
+   "he": "בקלה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#c1a76a",
+    "#e5c48b"
+   ],
+   "how": "דלי",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "salmon",
+   "en": "Salmon",
+   "he": "סלמון",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#a00f10",
+    "#0e8474"
+   ],
+   "how": "דלי",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "tropical_fish",
+   "en": "Tropical Fish",
+   "he": "דג טרופי",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#ef6915",
+    "#fff9ef"
+   ],
+   "how": "דלי",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "pufferfish",
+   "en": "Pufferfish",
+   "he": "אבו נפחא",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#f6b201",
+    "#37c3f2"
+   ],
+   "how": "דלי. מרעיל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "squid",
+   "en": "Squid",
+   "he": "דיונון",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#223b4d",
+    "#708899"
+   ],
+   "how": "רצועה או תעלת מים. תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "glow_squid",
+   "en": "Glow Squid",
+   "he": "דיונון זוהר",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#095656",
+    "#85f1bc"
+   ],
+   "how": "רצועה או תעלת מים. תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "dolphin",
+   "en": "Dolphin",
+   "he": "דולפין",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#223b4d",
+    "#f9f9f9"
+   ],
+   "how": "רצועה או תעלת מים",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "turtle",
+   "en": "Turtle",
+   "he": "צב",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#e7e7e7",
+    "#00afaf"
+   ],
+   "how": "להרביע ולבקוע ביצים בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "villager",
+   "en": "Villager",
+   "he": "כפרי",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#563c33",
+    "#bd8b72"
+   ],
+   "how": "סירה או עגלה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "iron_golem",
+   "en": "Iron Golem",
+   "he": "גולם ברזל",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#dbcdc2",
+    "#74a332"
+   ],
+   "how": "לבנות בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "snow_golem",
+   "en": "Snow Golem",
+   "he": "גולם שלג",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#d9f2f2",
+    "#81a4a4"
+   ],
+   "how": "לבנות בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "copper_golem",
+   "en": "Copper Golem",
+   "he": "גולם נחושת",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#c15a36",
+    "#6fa38e"
+   ],
+   "how": "לבנות בגן ולשעוות, אחרת יהפוך לפסל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zombie",
+   "en": "Zombie",
+   "he": "זומבי",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#00afaf",
+    "#799c65"
+   ],
+   "how": "בור או סירה, תג שם, תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "skeleton",
+   "en": "Skeleton",
+   "he": "שלד",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#c1c1c1",
+    "#494949"
+   ],
+   "how": "בור או סירה, תג שם, תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "spider",
+   "en": "Spider",
+   "he": "עכביש",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#342d27",
+    "#a80e0e"
+   ],
+   "how": "בור או סירה, תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "cave_spider",
+   "en": "Cave Spider",
+   "he": "עכביש מערות",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#0c424e",
+    "#a80e0e"
+   ],
+   "how": "ממכרה נטוש, סירה, תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "creeper",
+   "en": "Creeper",
+   "he": "קריפר",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#0da70b",
+    "#000000"
+   ],
+   "how": "סירה. לא להתקרב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "slime",
+   "en": "Slime",
+   "he": "סליים",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#51a03e",
+    "#7ebf6e"
+   ],
+   "how": "ביצה או צ'אנק סליים, לפתות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "witch",
+   "en": "Witch",
+   "he": "מכשפה",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#340000",
+    "#51a03e"
+   ],
+   "how": "טבעת עגלות או סירה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "husk",
+   "en": "Husk",
+   "he": "האסק",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#797061",
+    "#e6cc94"
+   ],
+   "how": "מדבר, בור או סירה, תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "stray",
+   "en": "Stray",
+   "he": "סטריי",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#617677",
+    "#dde4e4"
+   ],
+   "how": "להקפיא שלד בשלג אבקה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "bogged",
+   "en": "Bogged",
+   "he": "שלד ביצות",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#8a9b76",
+    "#314d1b"
+   ],
+   "how": "ביצות או תאי ניסיון, כמו שלד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "drowned",
+   "en": "Drowned",
+   "he": "טבוע",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#8ff1d7",
+    "#799c65"
+   ],
+   "how": "כמו זומבי, צריך מים בעומק 2",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "pillager",
+   "en": "Pillager",
+   "he": "בוזז",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#532f36",
+    "#959b9b"
+   ],
+   "how": "סירה ליד מאחז",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "vindicator",
+   "en": "Vindicator",
+   "he": "וינדיקייטור",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#959b9b",
+    "#275e61"
+   ],
+   "how": "סירה או טבעת עגלות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "evoker",
+   "en": "Evoker",
+   "he": "אבוקר",
+   "tier": 1,
+   "wing": "overworld",
+   "egg": [
+    "#959b9b",
+    "#1e1c1a"
+   ],
+   "how": "סירה או טבעת עגלות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "mooshroom",
+   "en": "Mooshroom",
+   "he": "מושרום",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#a00f10",
+    "#b7b7b7"
+   ],
+   "how": "רצועה מאי הפטריות הרחוק",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "polar_bear",
+   "en": "Polar Bear",
+   "he": "דוב קוטב",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#f2f2f2",
+    "#959590"
+   ],
+   "how": "רצועה, בלי גורים לידו",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "panda",
+   "en": "Panda",
+   "he": "פנדה",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#e7e7e7",
+    "#1b1b22"
+   ],
+   "how": "במבוק ביד או רצועה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "armadillo",
+   "en": "Armadillo",
+   "he": "ארמדילו",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#ad716d",
+    "#824848"
+   ],
+   "how": "רצועה מהסוואנה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "sniffer",
+   "en": "Sniffer",
+   "he": "סניפר",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#871e09",
+    "#25ab70"
+   ],
+   "how": "ביצה מחול חשוד בחורבות אוקיינוס חמות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "allay",
+   "en": "Allay",
+   "he": "אליי",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#00daff",
+    "#00adff"
+   ],
+   "how": "לשחרר מהכלוב ולתת לו חפץ",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "happy_ghast",
+   "en": "Happy Ghast",
+   "he": "גאסט שמח",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#f9f9f9",
+    "#bcbcbc"
+   ],
+   "how": "גאסט מיובש במים, צריך תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "strider",
+   "en": "Strider",
+   "he": "סטריידר",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#9c3436",
+    "#4d494d"
+   ],
+   "how": "פטריית וורפד על מקל, לבה בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "magma_cube",
+   "en": "Magma Cube",
+   "he": "קוביית מאגמה",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#340000",
+    "#fcfc00"
+   ],
+   "how": "לפתות כמו סליים",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "nautilus",
+   "en": "Nautilus",
+   "he": "נאוטילוס",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#d9c8a8",
+    "#8a5a3b"
+   ],
+   "how": "לאלף עם אבו נפחא, אוכף, לשחות לגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zombie_nautilus",
+   "en": "Zombie Nautilus",
+   "he": "נאוטילוס זומבי",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#6b8a73",
+    "#3d4f43"
+   ],
+   "how": "כמו נאוטילוס, צריך תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "camel_husk",
+   "en": "Camel Husk",
+   "he": "גמל האסק",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#b59a6a",
+    "#6f5a3a"
+   ],
+   "how": "במדבר, להרוג את הרוכב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "parched",
+   "en": "Parched",
+   "he": "פארצ'ד",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#d8c49a",
+    "#8f7a55"
+   ],
+   "how": "שלד מדבר, כמו שלד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zombie_horse",
+   "en": "Zombie Horse",
+   "he": "סוס זומבי",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#315234",
+    "#97c284"
+   ],
+   "how": "נשרף בשמש, לעבוד בלילה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "skeleton_horse",
+   "en": "Skeleton Horse",
+   "he": "סוס שלד",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#68684f",
+    "#e5e5d8"
+   ],
+   "how": "מלכודת שלדים בסופת ברקים",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zombie_villager",
+   "en": "Zombie Villager",
+   "he": "כפרי זומבי",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#563c33",
+    "#799c65"
+   ],
+   "how": "כפרי + זומבי על Hard",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zombified_piglin",
+   "en": "Zombified Piglin",
+   "he": "פיגלין זומבי",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#ea9393",
+    "#4c7129"
+   ],
+   "how": "להביא פיגלין לעולם העליון",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "zoglin",
+   "en": "Zoglin",
+   "he": "זוגלין",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#c66e55",
+    "#e6e6e6"
+   ],
+   "how": "להביא הוגלין דרך פורטל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "enderman",
+   "en": "Enderman",
+   "he": "אנדרמן",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#161616",
+    "#000000"
+   ],
+   "how": "בסירה, לא לשבור אותה. תקרה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "endermite",
+   "en": "Endermite",
+   "he": "אנדרמייט",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#161616",
+    "#6e6e6e"
+   ],
+   "how": "לזרוק פנינים בגן, תג שם תוך 2 דקות",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "silverfish",
+   "en": "Silverfish",
+   "he": "דג כסף",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#6e6e6e",
+    "#303030"
+   ],
+   "how": "מבלוק נגוע במבצר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "bat",
+   "en": "Bat",
+   "he": "עטלף",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#4c3e30",
+    "#0f0f0f"
+   ],
+   "how": "קופסה חשוכה מתחת ל-Y 63",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "trader_llama",
+   "en": "Trader Llama",
+   "he": "לאמת סוחר",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#eaa430",
+    "#456296"
+   ],
+   "how": "רצועה ולאלף, תג שם לא מספיק",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "sulfur_cube",
+   "en": "Sulfur Cube",
+   "he": "קוביית גופרית",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#d6c94a",
+    "#8a7f1e"
+   ],
+   "how": "דלי ריק על קובייה גדולה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "wither_skeleton",
+   "en": "Wither Skeleton",
+   "he": "שלד וית'ר",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#141414",
+    "#474d4d"
+   ],
+   "how": "מבצר נת'ר, בור או סירה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "blaze",
+   "en": "Blaze",
+   "he": "בלייז",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#f6b201",
+    "#fff87e"
+   ],
+   "how": "סירות ועגלות מסביב לספאונר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "piglin",
+   "en": "Piglin",
+   "he": "פיגלין",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#995f40",
+    "#f9f3a4"
+   ],
+   "how": "זהב ביד. רק באגף הנת'ר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "piglin_brute",
+   "en": "Piglin Brute",
+   "he": "פיגלין בריון",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#592a10",
+    "#f9f3a4"
+   ],
+   "how": "מהבאסטיון. רק באגף הנת'ר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "hoglin",
+   "en": "Hoglin",
+   "he": "הוגלין",
+   "tier": 2,
+   "wing": "nether",
+   "egg": [
+    "#c66e55",
+    "#5f6464"
+   ],
+   "how": "לפתות, להתרחק מפטריות וורפד. רק באגף הנת'ר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "ravager",
+   "en": "Ravager",
+   "he": "רבג'ר",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#757470",
+    "#5b5049"
+   ],
+   "how": "טבעת עגלות בפשיטה. גן גדול",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "guardian",
+   "en": "Guardian",
+   "he": "שומר",
+   "tier": 2,
+   "wing": "overworld",
+   "egg": [
+    "#5a8272",
+    "#f17d30"
+   ],
+   "how": "סירות מעל המקדש",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "warden",
+   "en": "Warden",
+   "he": "וורדן",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#0f4649",
+    "#39d6e0"
+   ],
+   "how": "כדורי שלג, שביל צמר, מכונת רעש, תג שם",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "ghast",
+   "en": "Ghast",
+   "he": "גאסט",
+   "tier": 3,
+   "wing": "nether",
+   "egg": [
+    "#f9f9f9",
+    "#bcbcbc"
+   ],
+   "how": "עגלה בנת'ר ודרך הפורטל",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "breeze",
+   "en": "Breeze",
+   "he": "בריז",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#af94df",
+    "#9166df"
+   ],
+   "how": "חדר קטן בתא ניסיון, עגלה החוצה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "phantom",
+   "en": "Phantom",
+   "he": "פנטום",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#43518a",
+    "#88ff00"
+   ],
+   "how": "3 לילות בלי שינה, לעמוד בתוך הגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "elder_guardian",
+   "en": "Elder Guardian",
+   "he": "שומר זקן",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#ceccba",
+    "#747693"
+   ],
+   "how": "לייבש חדר, פורטל בפנים, עגלה בנת'ר",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "shulker",
+   "en": "Shulker",
+   "he": "שולקר",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#946794",
+    "#4d3852"
+   ],
+   "how": "עגלה מעיר האנד לפורטל היציאה",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "creaking",
+   "en": "Creaking",
+   "he": "קריקינג",
+   "tier": 3,
+   "wing": "overworld",
+   "egg": [
+    "#5f5f5f",
+    "#fc7812"
+   ],
+   "how": "לב קריקינג בין 2 בולי אלון חיוור בגן",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "wither",
+   "en": "Wither",
+   "he": "וית'ר",
+   "tier": 4,
+   "wing": "overworld",
+   "egg": [
+    "#141414",
+    "#4d72a0"
+   ],
+   "how": "בונוס: גולם ברזל, עמוד בועות, כלוב",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "wandering_trader",
+   "en": "Wandering Trader",
+   "he": "סוחר נודד",
+   "tier": 4,
+   "wing": "overworld",
+   "egg": [
+    "#456296",
+    "#eaa430"
+   ],
+   "how": "בונוס: תערוכה זמנית, נעלם תמיד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "ender_dragon",
+   "en": "Ender Dragon",
+   "he": "דרקון האנדר",
+   "tier": 0,
+   "wing": "end",
+   "egg": [
+    "#1c1c1c",
+    "#e079fa"
+   ],
+   "how": "אי אפשר לכלוא מחוץ לאנד",
+   "caught": false,
+   "caught_at": null
+  },
+  {
+   "id": "vex",
+   "en": "Vex",
+   "he": "וקס",
+   "tier": 0,
+   "wing": "overworld",
+   "egg": [
+    "#7a90a4",
+    "#e8edf1"
+   ],
+   "how": "עובר דרך קירות ומת אחרי זמן קצר",
+   "caught": false,
+   "caught_at": null
+  }
+ ]
+}

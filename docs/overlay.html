@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Zoo overlay</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&family=Rubik+Pixels&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="eggs.css">
+<style>
+  /* OBS browser source: 1920x1080, transparent background */
+  html, body { margin: 0; background: transparent; overflow: hidden; }
+  body { font: 500 22px/1.3 "Rubik", system-ui, sans-serif; color: #fff; }
+  .hud {
+    position: fixed; top: 28px; right: 28px;
+    width: 400px;
+    background: rgba(16, 0, 16, .86);
+    border: 4px solid #000;
+    box-shadow: inset 0 0 0 4px #28007f;
+    padding: 16px 20px 14px;
+    transform-origin: top right;
+    transform: scale(var(--scale, 1));
+  }
+  .row { display: flex; align-items: center; gap: 14px; }
+  .title { font: 400 30px/1 "Rubik Pixels", "Rubik", sans-serif; flex: 1; text-shadow: 3px 3px 0 #3f3f3f; }
+  .num {
+    font: 700 46px/1 "Pixelify Sans", "Rubik", sans-serif;
+    color: #80ff20; direction: ltr;
+    text-shadow: -2px 0 #000, 2px 0 #000, 0 -2px #000, 0 2px #000, 3px 3px 0 #000;
+  }
+  .num small { font-size: 26px; color: #d6d6d6; }
+  .xp { height: 14px; margin: 12px 0 10px; background: #1b1b1b; border: 3px solid #000; direction: ltr; position: relative; }
+  .xp i { display: block; height: 100%; width: 0; background: linear-gradient(#b5ff6b 0 25%, #80ff20 25% 70%, #4fb512 70%); transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+  .xp::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(100%/18 - 2px), rgba(0,0,0,.55) calc(100%/18 - 2px) calc(100%/18)); }
+  .last { font-size: 19px; color: #d0c8ff; }
+  .last b { color: #ffaa00; font-weight: 700; }
+  .url { margin-top: 6px; font-size: 18px; color: #aaa; direction: ltr; text-align: right; }
+
+  .toast {
+    position: fixed; top: 250px; right: 28px;
+    display: flex; align-items: center; gap: 18px;
+    background: rgba(16, 0, 16, .92);
+    border: 4px solid #000; box-shadow: inset 0 0 0 4px #ffaa00;
+    padding: 16px 24px 16px 28px;
+    transform: translateX(120%);
+    transition: transform .45s cubic-bezier(.2,1.4,.4,1);
+  }
+  .toast.show { transform: translateX(0); }
+  .toast .egg { --s: 7px; }
+  .toast .k { font: 700 26px/1 "Rubik", sans-serif; color: #ffaa00; }
+  .toast .n { font: 700 40px/1.1 "Rubik", sans-serif; }
+  .toast .e { font-size: 20px; color: #aaa; }
+</style>
+</head>
+<body>
+<div class="hud">
+  <div class="row">
+    <div class="title">גן החיות</div>
+    <div class="num"><span id="got">0</span><small>/<span id="goal">84</span></small></div>
+  </div>
+  <div class="xp"><i id="bar"></i></div>
+  <div class="last" id="last">הלייב מתחיל. עוד לא נתפס אף מוב.</div>
+  <div class="url" id="url"></div>
+</div>
+<div class="toast" id="toast" aria-live="polite">
+  <span id="tegg"></span>
+  <div><div class="k">נתפס!</div><div class="n" id="tname"></div><div class="e" id="ten"></div></div>
+</div>
+
+<script src="eggs.js"></script>
+<script>
+const params = new URLSearchParams(location.search);
+if (params.get("scale")) document.documentElement.style.setProperty("--scale", params.get("scale"));
+let lastSeen, hideTimer, first = true;
+
+function paint(s) {
+  const goal = s.mobs.filter(m => m.tier >= 1 && m.tier <= 3);
+  const got = goal.filter(m => m.caught).length;
+  document.getElementById("got").textContent = got;
+  document.getElementById("goal").textContent = goal.length;
+  document.getElementById("bar").style.width = (goal.length ? got / goal.length * 100 : 0) + "%";
+  const last = s.mobs.find(m => m.id === s.last_caught && m.caught);
+  document.getElementById("last").innerHTML = last ? `נתפס לאחרונה: <b>${last.he}</b>` : "הלייב מתחיל. עוד לא נתפס אף מוב.";
+  document.getElementById("url").textContent = s.site_url ? "רשימה מלאה: " + s.site_url.replace(/^https?:\/\//, "") : "";
+  const key = last ? last.id + last.caught_at : null;
+  if (!first && key && key !== lastSeen) toast(last);
+  lastSeen = key; first = false;
+}
+
+function toast(m) {
+  const box = document.getElementById("tegg");
+  box.replaceChildren(makeEgg(m, false));
+  document.getElementById("tname").textContent = m.he;
+  document.getElementById("ten").textContent = m.en;
+  const t = document.getElementById("toast");
+  t.classList.add("show");
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(() => t.classList.remove("show"), 6500);
+}
+
+async function tick() {
+  try {
+    const r = await fetch("zoo.json?t=" + Date.now(), { cache: "no-store" });
+    if (r.ok) paint(await r.json());
+  } catch (e) { /* keep last state on screen */ }
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
