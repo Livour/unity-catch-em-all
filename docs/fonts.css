@@ -1,0 +1,14 @@
+/* Minecraft-style pixel fonts, self-hosted and subset to the characters the site uses.
+   Unifont: the font Minecraft itself uses for Hebrew and other Unicode text (GNU Unifont, OFL-1.1).
+   Monocraft: Minecraft-inspired Latin font (IdreesInc/Monocraft, OFL-1.1), used for numbers.
+   Pixel fonts stay sharp at multiples of 16px (Unifont's grid). */
+@font-face {
+  font-family: "Unifont";
+  src: url("fonts/unifont-he.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Monocraft";
+  src: url("fonts/monocraft.woff2") format("woff2");
+  font-display: swap;
+}

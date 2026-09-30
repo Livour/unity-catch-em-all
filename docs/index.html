@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>גן החיות של יוניטי</title>
 <meta name="description" content="כל המובים במיינקראפט בגן חיות אחד. הרשימה מתעדכנת בזמן הלייב.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Rubik+Pixels&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png">
+<link rel="preload" href="fonts/unifont-he.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="eggs.css">
 <style>
   :root {
@@ -23,16 +23,19 @@
     --gold: #ffaa00;
     --tip: #100010;
     --tip-edge: #28007f;
-    --pixel: "Rubik Pixels", "Rubik", system-ui, sans-serif;
-    --digits: "Pixelify Sans", "Rubik", system-ui, sans-serif;
-    --body: "Rubik", system-ui, "Segoe UI", Arial, sans-serif;
+    --pixel: "Unifont", monospace;
+    --digits: "Monocraft", "Unifont", monospace;
+    --body: "Unifont", monospace;
   }
   * { box-sizing: border-box; }
   html { background: var(--dirt); }
   body {
     margin: 0;
-    font: 400 1rem/1.5 var(--body);
+    font: 400 16px/1.5 var(--body);
     color: #fff;
+    font-synthesis: none;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
     background-color: var(--dirt);
     /* darkened dirt, like the Minecraft options screen */
     background-image:
@@ -45,15 +48,16 @@
   .wrap { max-width: 1080px; margin-inline: auto; }
 
   /* ---------- hero: the XP bar is the counter ---------- */
-  header { text-align: center; padding-block: 8px 28px; }
+  header { text-align: center; padding-block: 0 28px; }
+  .logo { display: block; width: min(240px, 60vw); height: auto; margin: 0 auto 4px; filter: drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
   h1 {
-    font: 400 clamp(2rem, 6vw, 3.6rem)/1.1 var(--pixel);
-    margin: 0 0 .4em;
-    text-shadow: .08em .08em 0 #3f3f3f;
+    font: 400 48px/1.1 var(--pixel);
+    margin: 0 0 16px;
+    text-shadow: 3px 3px 0 #3f3f3f;
   }
   .lede { margin: 0 auto 28px; max-width: 46ch; color: #e0d6cc; text-shadow: 1px 1px 0 #000; }
   .level {
-    font: 700 clamp(4rem, 14vw, 7.5rem)/.9 var(--digits);
+    font: 400 clamp(64px, 14vw, 112px)/1 var(--digits);
     color: var(--xp);
     text-shadow: -3px 0 #000, 3px 0 #000, 0 -3px #000, 0 3px #000, 4px 4px 0 #000;
     font-variant-numeric: tabular-nums;
@@ -78,10 +82,10 @@
     background: repeating-linear-gradient(90deg, transparent 0 calc(100%/18 - 3px), rgba(0,0,0,.55) calc(100%/18 - 3px) calc(100%/18));
     pointer-events: none;
   }
-  .count { margin: 0; font-weight: 500; text-shadow: 1px 1px 0 #000; }
-  .count b { color: var(--xp); font-weight: 700; }
+  .count { margin: 0; text-shadow: 2px 2px 0 #000; }
+  .count b { color: var(--xp); font-weight: 400; }
   .last { margin: 14px 0 0; color: #e0d6cc; text-shadow: 1px 1px 0 #000; min-height: 1.5em; }
-  .last b { color: var(--gold); font-weight: 500; }
+  .last b { color: var(--gold); font-weight: 400; }
 
   /* ---------- inventory panel ---------- */
   .gui {
@@ -93,7 +97,7 @@
   }
   .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
   .tab {
-    font: 500 .95rem var(--body);
+    font: 400 16px var(--body);
     color: var(--ink);
     background: #a8a8a8;
     border: 2px solid #000;
@@ -106,14 +110,14 @@
 
   section { margin-top: 22px; }
   h2 {
-    font: 700 1.25rem/1.2 var(--body);
+    font: 400 32px/1.1 var(--pixel);
     margin: 0 0 10px;
     display: flex; align-items: baseline; gap: 10px;
   }
-  h2 small { font: 500 .9rem var(--body); color: #6b6b6b; }
+  h2 small { font: 400 16px var(--digits); color: #6b6b6b; }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
     gap: 6px;
   }
   .slot {
@@ -123,8 +127,8 @@
     box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--gui-hi);
     padding: 10px 4px 8px;
     color: #fff;
-    font: 500 .8rem/1.2 var(--body);
-    text-shadow: 1px 1px 0 #3f3f3f;
+    font: 400 16px/1.15 var(--body);
+    text-shadow: 2px 2px 0 #3f3f3f;
     cursor: pointer;
     min-height: 104px;
   }
@@ -133,7 +137,7 @@
   .slot:not(.got) .name { color: #d6d6d6; }
   .slot .q {
     position: absolute; inset: 0; display: grid; place-items: center;
-    font: 700 1.3rem var(--digits); color: #d6d6d6; text-shadow: 2px 2px 0 #000;
+    font: 400 16px var(--digits); color: #d6d6d6; text-shadow: 2px 2px 0 #000;
   }
   .egg-box { position: relative; display: block; }
   .slot .egg { --s: 5px; }
@@ -151,8 +155,8 @@
     display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: center;
   }
   .tip .egg { --s: 5px; grid-row: span 3; }
-  .tip h3 { margin: 0; font: 700 1.2rem var(--body); }
-  .tip .hint { grid-column: 1 / -1; color: #aaaaaa; }
+  .tip h3 { margin: 0; font: 400 32px/1.2 var(--pixel); }
+  .tip[hidden] { display: none; }
   .tip p { margin: 0; color: #d0c8ff; }
   .tip .st { color: #aaaaaa; }
   .tip .st.got { color: var(--xp); }
@@ -162,7 +166,8 @@
   footer a { color: #fff; }
 
   @media (max-width: 480px) {
-    .grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+    h1 { font-size: 32px; }
     .tip { grid-template-columns: 1fr; }
     .tip .egg { display: none; }
   }
@@ -172,8 +177,9 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>גן החיות של יוניטי</h1>
-    <p class="lede">אנחנו מנסים לתפוס את כל המובים במיינקראפט ולשים אותם בגן חיות אחד. הרשימה מתעדכנת בזמן הלייב.</p>
+    <img class="logo" src="unity-logo.webp" width="475" height="480" alt="Unity SMP">
+    <h1>גן החיות</h1>
+    <p class="lede">אנחנו מנסים לתפוס את כל המובים במיינקראפט ולשים אותם בגן חיות אחד. הרשימה מתעדכנת בזמן הלייב. לחצו על מוב כדי לראות איך תופסים אותו.</p>
     <div class="level" id="level" aria-hidden="true">0</div>
     <div class="xp" role="progressbar" aria-label="מובים שנתפסו" aria-valuemin="0" id="xp"><div class="xp-fill"></div></div>
     <p class="count" id="count">טוען…</p>
@@ -187,7 +193,7 @@
       <button class="tab" data-f="missing" aria-pressed="false">עוד לא נתפסו</button>
     </div>
     <div id="sections"></div>
-    <div class="tip" id="tip" aria-live="polite"><p class="hint">לחצו על מוב כדי לראות איך תופסים אותו.</p></div>
+    <div class="tip" id="tip" aria-live="polite" hidden></div>
   </main>
 
   <footer>
@@ -278,6 +284,7 @@ function showTip(m) {
     <h3><bdi dir="ltr">${label(m)}</bdi></h3>
     <p class="st ${m.caught ? "got" : ""}">${m.caught ? "נתפס " + ago(m.caught_at) : "עוד לא נתפס"}${wing}</p>
     <p class="how">איך תופסים: ${m.how}</p>`);
+  tip.hidden = false;
 }
 
 document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {

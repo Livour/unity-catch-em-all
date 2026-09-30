@@ -1,0 +1,9 @@
+Fonts in this folder are subsets (only the characters this site uses) of:
+
+unifont-he.woff2 — GNU Unifont 18.0.01, https://unifoundry.com/unifont/
+  Dual licensed: SIL Open Font License 1.1, or GNU GPL v2+ with the GNU font embedding exception.
+
+monocraft.woff2 — Monocraft v4.2.1 by Idrees Hassan, https://github.com/IdreesInc/Monocraft
+  SIL Open Font License 1.1.
+
+SIL OFL 1.1: https://openfontlicense.org

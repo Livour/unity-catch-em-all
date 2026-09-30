@@ -5,6 +5,8 @@ Live tracker for the Unity SMP "catch every mob" stream (Minecraft Java 26.3).
 - `docs/` is the public site on GitHub Pages: `index.html` (mob list), `overlay.html` (OBS overlay), `zoo.json` (catch state).
 - `tools/` runs locally during the stream: `zoo_server.py` (control panel + overlay server), `build_mobs.py` (resets the mob list).
 
+Fonts: GNU Unifont (Hebrew, the font Minecraft uses for Unicode text) and Monocraft (numbers), self-hosted in `docs/fonts/` (see LICENSES.txt).
+
 ## During the stream
 
 ```
