@@ -113,7 +113,7 @@
   h2 small { font: 500 .9rem var(--body); color: #6b6b6b; }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
     gap: 6px;
   }
   .slot {
@@ -153,7 +153,6 @@
   .tip .egg { --s: 5px; grid-row: span 3; }
   .tip h3 { margin: 0; font: 700 1.2rem var(--body); }
   .tip .hint { grid-column: 1 / -1; color: #aaaaaa; }
-  .tip h3 span { font: 400 .9rem var(--body); color: #aaaaaa; margin-inline-start: 8px; }
   .tip p { margin: 0; color: #d0c8ff; }
   .tip .st { color: #aaaaaa; }
   .tip .st.got { color: var(--xp); }
@@ -224,17 +223,17 @@ function render() {
   document.getElementById("count").innerHTML = `<b>${got}</b> מתוך ${goal.length} מובים בגן`;
   const last = mobs.find(m => m.id === state.last_caught && m.caught);
   document.getElementById("last").innerHTML = last
-    ? `נתפס לאחרונה: <b>${last.he}</b>, ${ago(last.caught_at)}` : "עוד לא נתפס אף מוב. הלייב מתחיל בקרוב.";
+    ? `נתפס לאחרונה: <b><bdi dir="ltr">${label(last)}</bdi></b>, ${ago(last.caught_at)}` : "עוד לא נתפס אף מוב. הלייב מתחיל בקרוב.";
   if (state.channel_url) document.getElementById("yt").href = state.channel_url;
 
   const host = document.getElementById("sections");
   host.innerHTML = "";
-  for (const [tier, label] of TIERS) {
+  for (const [tier, heading] of TIERS) {
     const all = mobs.filter(m => m.tier === tier);
     const shown = all.filter(m => filter === "all" || (filter === "got") === m.caught);
     const sec = document.createElement("section");
     const n = all.filter(m => m.caught).length;
-    sec.innerHTML = `<h2>${label} <small>${n}/${all.length}</small></h2>`;
+    sec.innerHTML = `<h2>${heading} <small>${n}/${all.length}</small></h2>`;
     if (!shown.length) {
       if (filter !== "all") continue;
     }
@@ -243,14 +242,14 @@ function render() {
     for (const m of shown) {
       const b = document.createElement("button");
       b.className = "slot" + (m.caught ? " got" : "");
-      b.setAttribute("aria-label", `${m.he}, ${m.caught ? "נתפס" : "עוד לא נתפס"}`);
+      b.setAttribute("aria-label", `${label(m)}, ${m.caught ? "נתפס" : "עוד לא נתפס"}`);
       if (selected === m.id) b.setAttribute("aria-current", "true");
       const box = document.createElement("span");
       box.className = "egg-box";
       box.append(makeEgg(m, !m.caught));
       if (!m.caught) box.insertAdjacentHTML("beforeend", '<span class="q" aria-hidden="true">?</span>');
       b.append(box);
-      b.insertAdjacentHTML("beforeend", `<span class="name">${m.he}</span>`);
+      b.insertAdjacentHTML("beforeend", `<span class="name" dir="ltr">${label(m)}</span>`);
       b.addEventListener("click", () => select(m.id));
       b.addEventListener("mouseenter", () => showTip(m));
       b.addEventListener("focus", () => showTip(m));
@@ -276,7 +275,7 @@ function showTip(m) {
   tip.innerHTML = "";
   tip.append(makeEgg(m, !m.caught));
   tip.insertAdjacentHTML("beforeend", `
-    <h3>${m.he}<span>${m.en}</span></h3>
+    <h3><bdi dir="ltr">${label(m)}</bdi></h3>
     <p class="st ${m.caught ? "got" : ""}">${m.caught ? "נתפס " + ago(m.caught_at) : "עוד לא נתפס"}${wing}</p>
     <p class="how">איך תופסים: ${m.how}</p>`);
 }

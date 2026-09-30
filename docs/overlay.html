@@ -32,7 +32,8 @@
   .xp::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(100%/18 - 2px), rgba(0,0,0,.55) calc(100%/18 - 2px) calc(100%/18)); }
   .last { font-size: 19px; color: #d0c8ff; }
   .last b { color: #ffaa00; font-weight: 700; }
-  .url { margin-top: 6px; font-size: 18px; color: #aaa; direction: ltr; text-align: right; }
+  .url { margin-top: 6px; font-size: 18px; color: #aaa; }
+  .url bdi { color: #fff; }
 
   .toast {
     position: fixed; top: 250px; right: 28px;
@@ -78,8 +79,8 @@ function paint(s) {
   document.getElementById("goal").textContent = goal.length;
   document.getElementById("bar").style.width = (goal.length ? got / goal.length * 100 : 0) + "%";
   const last = s.mobs.find(m => m.id === s.last_caught && m.caught);
-  document.getElementById("last").innerHTML = last ? `נתפס לאחרונה: <b>${last.he}</b>` : "הלייב מתחיל. עוד לא נתפס אף מוב.";
-  document.getElementById("url").textContent = s.site_url ? "רשימה מלאה: " + s.site_url.replace(/^https?:\/\//, "") : "";
+  document.getElementById("last").innerHTML = last ? `נתפס לאחרונה: <b><bdi dir="ltr">${label(last)}</bdi></b>` : "הלייב מתחיל. עוד לא נתפס אף מוב.";
+  document.getElementById("url").innerHTML = s.site_url ? `רשימה מלאה: <bdi dir="ltr">${s.site_url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</bdi>` : "";
   const key = last ? last.id + last.caught_at : null;
   if (!first && key && key !== lastSeen) toast(last);
   lastSeen = key; first = false;
@@ -88,8 +89,8 @@ function paint(s) {
 function toast(m) {
   const box = document.getElementById("tegg");
   box.replaceChildren(makeEgg(m, false));
-  document.getElementById("tname").textContent = m.he;
-  document.getElementById("ten").textContent = m.en;
+  document.getElementById("tname").textContent = m.en;
+  document.getElementById("ten").textContent = `(${m.he})`;
   const t = document.getElementById("toast");
   t.classList.add("show");
   clearTimeout(hideTimer);

@@ -48,17 +48,17 @@ function render() {
   document.getElementById("count").textContent = `${goal.filter(m => m.caught).length} / ${goal.length}`;
   const host = document.getElementById("list");
   host.innerHTML = "";
-  for (const [tier, label] of TIERS) {
+  for (const [tier, heading] of TIERS) {
     const mobs = state.mobs.filter(m => m.tier === tier && (!q || m.he.includes(q) || m.en.toLowerCase().includes(q) || m.id.includes(q)));
     if (!mobs.length) continue;
-    host.insertAdjacentHTML("beforeend", `<h2>${label}</h2>`);
+    host.insertAdjacentHTML("beforeend", `<h2>${heading}</h2>`);
     const grid = document.createElement("div");
     grid.className = "grid";
     for (const m of mobs) {
       const b = document.createElement("button");
       b.className = "m" + (m.caught ? " got" : "");
       b.append(makeEgg(m, false));
-      b.insertAdjacentHTML("beforeend", `<span>${m.he}<small>${m.en}</small></span>`);
+      b.insertAdjacentHTML("beforeend", `<span dir="ltr">${label(m)}</span>`);
       b.title = m.caught ? "לחיצה תסמן כלא נתפס" : "לחיצה תסמן כנתפס";
       b.onclick = () => toggle(m.id);
       grid.append(b);
@@ -73,7 +73,7 @@ async function toggle(id) {
     undoStack.push(id);
     document.getElementById("undo").disabled = false;
     const m = state.mobs.find(x => x.id === id);
-    setStatus(`${m.he}: ${m.caught ? "נתפס" : "סומן כלא נתפס"}`);
+    setStatus(`${label(m)}: ${m.caught ? "נתפס" : "סומן כלא נתפס"}`);
     render();
   } catch (e) { setStatus("השמירה נכשלה: " + e.message); }
 }
