@@ -50,7 +50,7 @@
   {
    "id": "chicken",
    "en": "Chicken",
-   "he": "תרנגולת",
+   "he": "תרנגול",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -120,7 +120,7 @@
   {
    "id": "llama",
    "en": "Llama",
-   "he": "לאמה",
+   "he": "למה",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -204,7 +204,7 @@
   {
    "id": "ocelot",
    "en": "Ocelot",
-   "he": "אוצלוט",
+   "he": "חתול ביצות",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -526,7 +526,7 @@
   {
    "id": "slime",
    "en": "Slime",
-   "he": "סליים",
+   "he": "רפש",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -568,7 +568,7 @@
   {
    "id": "stray",
    "en": "Stray",
-   "he": "סטריי",
+   "he": "תועה",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -582,7 +582,7 @@
   {
    "id": "bogged",
    "en": "Bogged",
-   "he": "שלד ביצות",
+   "he": "שקוע",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -610,7 +610,7 @@
   {
    "id": "pillager",
    "en": "Pillager",
-   "he": "בוזז",
+   "he": "שודד כפרים",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -624,7 +624,7 @@
   {
    "id": "vindicator",
    "en": "Vindicator",
-   "he": "וינדיקייטור",
+   "he": "מרטש",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -638,7 +638,7 @@
   {
    "id": "evoker",
    "en": "Evoker",
-   "he": "אבוקר",
+   "he": "מעורר",
    "tier": 1,
    "wing": "overworld",
    "egg": [
@@ -694,7 +694,7 @@
   {
    "id": "armadillo",
    "en": "Armadillo",
-   "he": "ארמדילו",
+   "he": "ארמדיל",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -708,7 +708,7 @@
   {
    "id": "sniffer",
    "en": "Sniffer",
-   "he": "סניפר",
+   "he": "רחרחן",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -722,7 +722,7 @@
   {
    "id": "allay",
    "en": "Allay",
-   "he": "אליי",
+   "he": "אלאיי",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -848,7 +848,7 @@
   {
    "id": "skeleton_horse",
    "en": "Skeleton Horse",
-   "he": "סוס שלד",
+   "he": "שלד סוס",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -862,7 +862,7 @@
   {
    "id": "zombie_villager",
    "en": "Zombie Villager",
-   "he": "כפרי זומבי",
+   "he": "זומבי כפרי",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -960,7 +960,7 @@
   {
    "id": "trader_llama",
    "en": "Trader Llama",
-   "he": "לאמת סוחר",
+   "he": "למה של סוחר",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -988,7 +988,7 @@
   {
    "id": "wither_skeleton",
    "en": "Wither Skeleton",
-   "he": "שלד וית'ר",
+   "he": "שלד וויד'ר",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -1002,7 +1002,7 @@
   {
    "id": "blaze",
    "en": "Blaze",
-   "he": "בלייז",
+   "he": "להבון",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -1030,7 +1030,7 @@
   {
    "id": "piglin_brute",
    "en": "Piglin Brute",
-   "he": "פיגלין בריון",
+   "he": "פיגלין פראי",
    "tier": 2,
    "wing": "nether",
    "egg": [
@@ -1058,7 +1058,7 @@
   {
    "id": "ravager",
    "en": "Ravager",
-   "he": "רבג'ר",
+   "he": "הרסן",
    "tier": 2,
    "wing": "overworld",
    "egg": [
@@ -1114,7 +1114,7 @@
   {
    "id": "breeze",
    "en": "Breeze",
-   "he": "בריז",
+   "he": "בריזה",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1128,7 +1128,7 @@
   {
    "id": "phantom",
    "en": "Phantom",
-   "he": "פנטום",
+   "he": "פאנטום",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1142,7 +1142,7 @@
   {
    "id": "elder_guardian",
    "en": "Elder Guardian",
-   "he": "שומר זקן",
+   "he": "שומר בכיר",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1170,7 +1170,7 @@
   {
    "id": "creaking",
    "en": "Creaking",
-   "he": "קריקינג",
+   "he": "החורק",
    "tier": 3,
    "wing": "overworld",
    "egg": [
@@ -1184,7 +1184,7 @@
   {
    "id": "wither",
    "en": "Wither",
-   "he": "וית'ר",
+   "he": "וויד'ר",
    "tier": 4,
    "wing": "overworld",
    "egg": [
@@ -1212,7 +1212,7 @@
   {
    "id": "ender_dragon",
    "en": "Ender Dragon",
-   "he": "דרקון האנדר",
+   "he": "דרקון אנדר",
    "tier": 0,
    "wing": "end",
    "egg": [
@@ -1226,7 +1226,7 @@
   {
    "id": "vex",
    "en": "Vex",
-   "he": "וקס",
+   "he": "ווקס",
    "tier": 0,
    "wing": "overworld",
    "egg": [
