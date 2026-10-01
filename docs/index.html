@@ -272,7 +272,8 @@ function render() {
   xp.setAttribute("aria-valuenow", got);
   requestAnimationFrame(() => xp.style.setProperty("--p", pct + "%"));
   document.getElementById("count").innerHTML = `<b>${got}</b> מתוך ${goal.length} מובים נתפסו`;
-  document.getElementById("dexcount").textContent = `${mobs.filter(m => m.caught).length}/${mobs.length}`;
+  const dex = mobs.filter(m => m.tier !== 0); // impossible mobs are not in the Mobdex count
+  document.getElementById("dexcount").textContent = `${dex.filter(m => m.caught).length}/${dex.length}`;
   const last = mobs.find(m => m.id === state.last_caught && m.caught);
   document.getElementById("last").innerHTML = last
     ? `נתפס לאחרונה: <b><bdi dir="ltr">${label(last)}</bdi></b>, ${ago(last.caught_at)}` : "עוד לא נתפס אף מוב. הלייב מתחיל בקרוב.";
@@ -313,9 +314,10 @@ function render() {
   if (cur) showTip(cur);
 }
 
-// Mobdex number: position in the master list, fixed for the whole stream.
+// Mobdex number: position in the master list, fixed for the whole stream. Impossible mobs get none.
 function dexNo(m) {
-  return "#" + String(state.mobs.indexOf(m) + 1).padStart(3, "0");
+  if (m.tier === 0) return "";
+  return "#" + String(state.mobs.filter(x => x.tier !== 0).indexOf(m) + 1).padStart(3, "0");
 }
 
 function select(id) {
