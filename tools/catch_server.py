@@ -1,7 +1,7 @@
-"""Local server for the Unity Zoo stream. Python standard library only.
+"""Local server for the Unity SMP "לתפוס את כולם" stream. Python standard library only.
 
-    python tools/zoo_server.py            # control panel + overlay, no GitHub push
-    python tools/zoo_server.py --push     # also commit + push docs/zoo.json to GitHub after each catch
+    python tools/catch_server.py            # control panel + overlay, no GitHub push
+    python tools/catch_server.py --push     # also commit + push docs/catch.json to GitHub after each catch
 
 Open:
     http://localhost:8765/            control panel (click a mob = caught)
@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-DATA = DOCS / "zoo.json"
+DATA = DOCS / "catch.json"
 CONTROL = Path(__file__).with_name("control.html")
 PORT = 8765
 PUSH = "--push" in sys.argv
@@ -50,8 +50,8 @@ def do_push():
         push_state["timer"] = None
     if not names:
         return
-    git("add", "docs/zoo.json")
-    msg = "zoo: " + ", ".join(dict.fromkeys(names))
+    git("add", "docs/catch.json")
+    msg = "catch: " + ", ".join(dict.fromkeys(names))
     c = git("commit", "-m", msg)
     if c.returncode != 0 and "nothing to commit" not in c.stdout:
         push_state["message"] = "commit נכשל: " + (c.stderr or c.stdout).strip()[:120]
@@ -143,7 +143,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     if not DATA.exists():
-        raise SystemExit("docs/zoo.json missing. Run: python tools/build_mobs.py")
+        raise SystemExit("docs/catch.json missing. Run: python tools/build_mobs.py")
     srv = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     print(f"Control panel:  http://localhost:{PORT}/")
     print(f"OBS overlay:    http://localhost:{PORT}/overlay.html")

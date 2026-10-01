@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<title>Zoo overlay</title>
+<title>לתפוס את כולם: overlay</title>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="mobs.css">
 <style>
@@ -64,7 +64,7 @@
 <body>
 <div class="hud">
   <div class="row">
-    <div class="title"><span class="ball" data-ball></span>גן החיות</div>
+    <div class="title"><span class="ball" data-ball></span>לתפוס את כולם</div>
     <div class="num"><span id="got">0</span><small>/<span id="goal">84</span></small></div>
   </div>
   <div class="xp"><i id="bar"></i></div>
@@ -173,7 +173,7 @@ async function play(m) {
 
 async function tick() {
   try {
-    const r = await fetch("zoo.json?t=" + Date.now(), { cache: "no-store" });
+    const r = await fetch("catch.json?t=" + Date.now(), { cache: "no-store" });
     if (r.ok) paint(await r.json());
   } catch (e) { /* keep last state on screen */ }
 }
