@@ -35,42 +35,69 @@
   .url { margin-top: 6px; font-size: 16px; color: #aaa; }
   .url bdi { color: #fff; }
 
-  .toast {
+  .ball { display: block; image-rendering: pixelated; }
+  .title { display: flex; align-items: center; gap: 10px; }
+  .title .ball { width: 28px; height: 28px; }
+
+  /* catch card: silhouette -> Pokeball throw -> 3 wobbles -> click -> reveal */
+  .card {
     position: fixed; top: 250px; right: 28px;
     display: flex; align-items: center; gap: 18px;
     background: rgba(16, 0, 16, .92);
     border: 4px solid #000; box-shadow: inset 0 0 0 4px #ffaa00;
     padding: 16px 24px 16px 28px;
-    transform: translateX(120%);
-    transition: transform .45s cubic-bezier(.2,1.4,.4,1);
+    transform: translateX(130%);
   }
-  .toast.show { transform: translateX(0); }
-  .toast .mob { --w: 128px; }
-  .toast .k { font: 400 32px/1 "Unifont", monospace; color: #ffaa00; }
-  .toast .n { font: 400 48px/1.1 "Unifont", monospace; }
-  .toast .e { font-size: 32px; color: #aaa; }
+  .stage { position: relative; width: 140px; height: 140px; flex: none; }
+  #cmob { position: absolute; inset: 0; display: grid; place-items: center; }
+  #cmob .mob { --w: 128px; }
+  .stage .ball { position: absolute; width: 72px; height: 72px; left: 34px; top: 34px; opacity: 0; transform-origin: 50% 90%; }
+  .star { position: absolute; left: 64px; top: 64px; width: 12px; height: 12px; opacity: 0;
+    background: linear-gradient(#fff, #fff) center / 4px 12px no-repeat, linear-gradient(#ffe066, #ffe066) center / 12px 4px no-repeat; }
+  .txt { min-width: 220px; }
+  .txt > * { opacity: 0; }
+  .card .k { font: 400 32px/1 "Unifont", monospace; color: #ffaa00; }
+  .card .n { font: 400 48px/1.1 "Unifont", monospace; }
+  .card .e { font-size: 32px; color: #aaa; }
 </style>
 </head>
 <body>
 <div class="hud">
   <div class="row">
-    <div class="title">גן החיות</div>
+    <div class="title"><span class="ball" data-ball></span>גן החיות</div>
     <div class="num"><span id="got">0</span><small>/<span id="goal">84</span></small></div>
   </div>
   <div class="xp"><i id="bar"></i></div>
   <div class="last" id="last">הלייב מתחיל. עוד לא נתפס אף מוב.</div>
   <div class="url" id="url"></div>
 </div>
-<div class="toast" id="toast" aria-live="polite">
-  <span id="tegg"></span>
-  <div><div class="k">נתפס!</div><div class="n" id="tname"></div><div class="e" id="ten"></div></div>
+<div class="card" id="card" aria-live="polite">
+  <div class="stage" id="stage">
+    <span id="cmob"></span>
+    <span class="ball" id="ball" data-ball></span>
+  </div>
+  <div class="txt"><div class="k">נתפס!</div><div class="n" id="cname"></div><div class="e" id="che"></div></div>
 </div>
 
 <script src="mobs.js"></script>
 <script>
 const params = new URLSearchParams(location.search);
 if (params.get("scale")) document.documentElement.style.setProperty("--scale", params.get("scale"));
-let lastSeen, hideTimer, first = true;
+let seen = null, queue = [], playing = false;
+const demo = params.get("demo");
+
+// Pokeball, 12x12 pixel art drawn from scratch. K outline, R red, D red shade, H shine, W white, G white shade.
+const BALL = ["....KKKK....", "..KKRRRRKK..", ".KRRRRRRHRK.", ".KRRRRRRRRK.", "KDRRRKKRRRDK", "KKKKKWWKKKKK",
+  "KWWWWKKWWWWK", "KWWWWWWWWWGK", ".KWWWWWWWGK.", ".KGWWWWWGGK.", "..KKGGGGKK..", "....KKKK...."];
+const COL = { K: "#000", R: "#e3262e", D: "#a5121a", H: "#ff9a9a", W: "#fff", G: "#b8b8b8" };
+const ballSVG = '<svg viewBox="0 0 12 12" width="100%" height="100%" shape-rendering="crispEdges" aria-hidden="true">' +
+  BALL.flatMap((row, y) => [...row].map((c, x) => COL[c] ? `<rect x="${x}" y="${y}" width="1" height="1" fill="${COL[c]}"/>` : "")).join("") + "</svg>";
+document.querySelectorAll("[data-ball]").forEach(b => b.innerHTML = ballSVG);
+const stage = document.getElementById("stage");
+const stars = [0, 60, 120, 180, 240, 300].map(a => {
+  const s = document.createElement("span");
+  s.className = "star"; s.dataset.a = a; stage.append(s); return s;
+});
 
 function paint(s) {
   const goal = s.mobs.filter(m => m.tier >= 1 && m.tier <= 3);
@@ -81,20 +108,67 @@ function paint(s) {
   const last = s.mobs.find(m => m.id === s.last_caught && m.caught);
   document.getElementById("last").innerHTML = last ? `נתפס לאחרונה: <b><bdi dir="ltr">${label(last)}</bdi></b>` : "הלייב מתחיל. עוד לא נתפס אף מוב.";
   document.getElementById("url").innerHTML = s.site_url ? `רשימה מלאה: <bdi dir="ltr">${s.site_url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</bdi>` : "";
-  const key = last ? last.id + last.caught_at : null;
-  if (!first && key && key !== lastSeen) toast(last);
-  lastSeen = key; first = false;
+
+  // Every mob newly caught since the last poll gets its own animation, oldest first.
+  // First poll only remembers what is already caught. Undo removes it, so a re-catch animates again.
+  const caught = s.mobs.filter(m => m.caught);
+  if (seen) queue.push(...caught.filter(m => !seen.has(m.id)).sort((a, b) => a.caught_at.localeCompare(b.caught_at)));
+  else if (demo) queue.push(...s.mobs.filter(m => m.id === demo));
+  seen = new Set(caught.map(m => m.id));
+  run();
 }
 
-function toast(m) {
-  const box = document.getElementById("tegg");
+async function run() {
+  if (playing) return;
+  playing = true;
+  while (queue.length) await play(queue.shift());
+  playing = false;
+}
+
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const anim = (el, frames, ms, opts = {}) => el.animate(frames, { duration: ms, fill: "forwards", easing: "ease-out", ...opts }).finished;
+
+async function play(m) {
+  const card = document.getElementById("card"), ball = document.getElementById("ball"), box = document.getElementById("cmob");
+  const txt = [...card.querySelectorAll(".txt > *")];
+  card.getAnimations({ subtree: true }).forEach(a => a.cancel());
+  box.replaceChildren(makeMob(m, true));
+  const mob = box.firstChild;
+  document.getElementById("cname").textContent = m.en;
+  document.getElementById("che").textContent = `(${m.he})`;
+
+  card.classList.add("show");
+  await anim(card, [{ transform: "translateX(130%)" }, { transform: "translateX(0)" }], 450, { easing: "cubic-bezier(.2,1.4,.4,1)" });
+  await wait(900);
+  // throw: arc in from the left, spinning
+  await anim(ball, [
+    { opacity: 1, transform: "translate(-420px, -40px) rotate(0)" },
+    { opacity: 1, transform: "translate(-210px, -230px) rotate(-360deg)", offset: .5 },
+    { opacity: 1, transform: "translate(0, 0) rotate(-720deg)" }], 600, { easing: "linear" });
+  // the mob turns white and is pulled into the ball
+  await anim(mob, [
+    { filter: "brightness(0)", opacity: .6, transform: "scale(1)" },
+    { filter: "brightness(0) invert(1)", opacity: 1, transform: "scale(1)", offset: .35 },
+    { filter: "brightness(0) invert(1)", opacity: 0, transform: "scale(0)" }], 400, { easing: "ease-in" });
+  for (let i = 0; i < 3; i++) {
+    await anim(ball, [{ opacity: 1, transform: "rotate(0)" }, { opacity: 1, transform: "rotate(-22deg)" },
+      { opacity: 1, transform: "rotate(22deg)" }, { opacity: 1, transform: "rotate(0)" }], 450, { easing: "ease-in-out" });
+    await wait(200);
+  }
+  // click
+  stars.forEach(s => {
+    const a = s.dataset.a * Math.PI / 180, x = Math.cos(a) * 70, y = Math.sin(a) * 70;
+    anim(s, [{ opacity: 1, transform: "translate(0,0) scale(1)" }, { opacity: 0, transform: `translate(${x}px, ${y}px) scale(.4)` }], 500);
+  });
+  await anim(ball, [{ opacity: 1, transform: "scale(1)" }, { opacity: 1, transform: "scale(1.15)" }, { opacity: 1, transform: "scale(1)" }], 500);
+  // reveal in color
   box.replaceChildren(makeMob(m, false));
-  document.getElementById("tname").textContent = m.en;
-  document.getElementById("ten").textContent = `(${m.he})`;
-  const t = document.getElementById("toast");
-  t.classList.add("show");
-  clearTimeout(hideTimer);
-  hideTimer = setTimeout(() => t.classList.remove("show"), 6500);
+  anim(ball, [{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(.3)" }], 250);
+  anim(box.firstChild, [{ transform: "scale(0)" }, { transform: "scale(1.15)", offset: .7 }, { transform: "scale(1)" }], 400);
+  txt.forEach((t, i) => anim(t, [{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)" }], 300, { delay: i * 120 }));
+  await wait(400 + 2600);
+  await anim(card, [{ transform: "translateX(0)" }, { transform: "translateX(130%)" }], 450, { easing: "ease-in" });
+  card.classList.remove("show");
 }
 
 async function tick() {
