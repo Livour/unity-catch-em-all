@@ -23,6 +23,11 @@
     --gold: #ffaa00;
     --tip: #100010;
     --tip-edge: #28007f;
+    --poke-yellow: #ffcb05;
+    --poke-blue: #2a75bb;
+    --poke-navy: #1d2c5e;
+    --dex-red: #dc0a2d;
+    --dex-red-lo: #8b0618;
     --pixel: "Unifont", monospace;
     --digits: "Monocraft", "Unifont", monospace;
     --body: "Unifont", monospace;
@@ -51,10 +56,17 @@
   header { text-align: center; padding-block: 0 28px; }
   .logo { display: block; width: min(240px, 60vw); height: auto; margin: 0 auto 4px; filter: drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
   h1 {
-    font: 400 48px/1.1 var(--pixel);
+    font: 400 56px/1.1 var(--pixel);
     margin: 0 0 16px;
-    text-shadow: 3px 3px 0 #3f3f3f;
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    color: var(--poke-yellow);
+    /* Pokemon-logo look: yellow letters, thick blue pixel outline, navy drop */
+    text-shadow:
+      -4px 0 var(--poke-blue), 4px 0 var(--poke-blue), 0 -4px var(--poke-blue), 0 4px var(--poke-blue),
+      -4px -4px var(--poke-blue), 4px -4px var(--poke-blue), -4px 4px var(--poke-blue), 4px 4px var(--poke-blue),
+      7px 8px 0 var(--poke-navy), 4px 8px 0 var(--poke-navy), 8px 4px 0 var(--poke-navy);
   }
+  h1 .ball { width: 44px; height: 44px; flex: none; filter: drop-shadow(3px 4px 0 var(--poke-navy)); }
   .lede { margin: 0 auto 28px; max-width: 46ch; color: #e0d6cc; text-shadow: 1px 1px 0 #000; }
   .level {
     font: 400 clamp(64px, 14vw, 112px)/1 var(--digits);
@@ -95,6 +107,26 @@
     box-shadow: inset 4px 4px 0 var(--gui-hi), inset -4px -4px 0 var(--gui-lo);
     padding: 20px clamp(12px, 3vw, 28px) 28px;
   }
+  .gui { --pad: clamp(12px, 3vw, 28px); }
+  .dex-top {
+    display: flex; align-items: center; gap: 14px;
+    margin: -20px calc(-1 * var(--pad)) 18px;
+    padding: 12px var(--pad) 14px;
+    background: var(--dex-red);
+    box-shadow: inset 4px 4px 0 #ff4d6a, inset -4px -4px 0 var(--dex-red-lo);
+    border-bottom: 6px solid #000;
+    color: #fff;
+  }
+  .lens { /* the big blue Pokedex lens */
+    width: 40px; height: 40px; flex: none;
+    background: radial-gradient(circle at 35% 35%, #9fd8ff 0 18%, #2a9df4 19% 62%, #0a5ea8 63%);
+    border: 4px solid #fff; outline: 3px solid #000; border-radius: 50%;
+  }
+  .dots { display: flex; gap: 6px; }
+  .dots i { width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; }
+  .dots i:nth-child(1) { background: #ff3b3b; } .dots i:nth-child(2) { background: #ffd23b; } .dots i:nth-child(3) { background: #47d45a; }
+  .dex-top b { font: 400 32px/1 var(--pixel); text-shadow: 3px 3px 0 var(--dex-red-lo); margin-inline-start: auto; }
+  .dex-top small { font: 400 16px var(--digits); color: #ffd6dc; }
   .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
   .tab {
     font: 400 16px var(--body);
@@ -135,7 +167,10 @@
   .slot:hover, .slot[aria-current="true"] { background: #a6a6a6; }
   .slot .name { text-align: center; overflow-wrap: anywhere; }
   .slot:not(.got) .name { color: #d6d6d6; }
+  .slot { position: relative; }
   .slot .mob { --w: 72px; }
+  .slot .no { position: absolute; top: 4px; left: 6px; font: 400 12px/1 var(--digits); color: #e8e8e8; text-shadow: 1px 1px 0 #3f3f3f; direction: ltr; }
+  .slot .mark { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; }
   .empty { color: #6b6b6b; margin: 6px 0 0; }
 
   /* ---------- inspector: Minecraft tooltip ---------- */
@@ -149,7 +184,12 @@
     padding: 14px 18px;
     display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: center;
   }
-  .tip .mob { --w: 96px; grid-column: 1; grid-row: 1 / span 3; }
+  .tip .mob { --w: 96px; grid-column: 1; grid-row: 1 / span 4; }
+  .tip h3 .no { font: 400 24px var(--digits); color: #aaaaaa; margin-inline-end: 10px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge { font: 400 16px/1 var(--body); color: #fff; padding: 5px 10px 4px; border: 2px solid #000; box-shadow: inset 0 -3px 0 rgba(0,0,0,.3); text-shadow: 1px 1px 0 rgba(0,0,0,.6); }
+  .badge.overworld { background: #5aa83b; } .badge.nether { background: #b02e26; } .badge.end { background: #8a3fb3; }
+  .badge.t1 { background: #3c8527; } .badge.t2 { background: #c99a06; } .badge.t3 { background: #d0532c; } .badge.t4 { background: #4a6fd6; } .badge.t0 { background: #5a4a3e; }
   .tip > :not(.mob) { grid-column: 2; }
   .tip h3 { margin: 0; font: 400 32px/1.2 var(--pixel); }
   .tip[hidden] { display: none; }
@@ -163,7 +203,8 @@
 
   @media (max-width: 480px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
-    h1 { font-size: 32px; }
+    h1 { font-size: 34px; gap: 10px; }
+    h1 .ball { width: 28px; height: 28px; }
     .tip .mob { --w: 64px; }
   }
   @media (prefers-reduced-motion: reduce) { .xp-fill { transition: none; } }
@@ -173,7 +214,7 @@
 <div class="wrap">
   <header>
     <img class="logo" src="unity-logo.webp" width="475" height="480" alt="Unity SMP">
-    <h1>לתפוס את כולם</h1>
+    <h1><span class="ball" data-ball></span>לתפוס את כולם<span class="ball" data-ball></span></h1>
     <p class="lede">אנחנו מנסים לתפוס את כל המובים במיינקראפט. הרשימה מתעדכנת בזמן הלייב. לחצו על מוב כדי לראות איך תופסים אותו.</p>
     <div class="level" id="level" aria-hidden="true">0</div>
     <div class="xp" role="progressbar" aria-label="מובים שנתפסו" aria-valuemin="0" id="xp"><div class="xp-fill"></div></div>
@@ -182,6 +223,12 @@
   </header>
 
   <main class="gui">
+    <div class="dex-top" aria-hidden="true">
+      <span class="lens"></span>
+      <span class="dots"><i></i><i></i><i></i></span>
+      <b>מובדקס</b>
+      <small id="dexcount"></small>
+    </div>
     <div class="tabs" role="group" aria-label="סינון">
       <button class="tab" data-f="all" aria-pressed="true">הכל</button>
       <button class="tab" data-f="got" aria-pressed="false">נתפסו</button>
@@ -198,6 +245,9 @@
 
 <script src="mobs.js"></script>
 <script>
+document.querySelectorAll("[data-ball]").forEach(b => b.innerHTML = BALL_SVG);
+const WINGS = { overworld: "אוברוורלד", nether: "נת'ר", end: "אנד" };
+const LEVEL = { 1: "קל", 2: "בינוני", 3: "קשה", 4: "בונוס", 0: "בלתי אפשרי" };
 const TIERS = [
   [1, "קלים"], [2, "בינוניים"], [3, "קשים"], [4, "בונוס"], [0, "בלתי אפשרי"],
 ];
@@ -222,6 +272,7 @@ function render() {
   xp.setAttribute("aria-valuenow", got);
   requestAnimationFrame(() => xp.style.setProperty("--p", pct + "%"));
   document.getElementById("count").innerHTML = `<b>${got}</b> מתוך ${goal.length} מובים נתפסו`;
+  document.getElementById("dexcount").textContent = `${mobs.filter(m => m.caught).length}/${mobs.length}`;
   const last = mobs.find(m => m.id === state.last_caught && m.caught);
   document.getElementById("last").innerHTML = last
     ? `נתפס לאחרונה: <b><bdi dir="ltr">${label(last)}</bdi></b>, ${ago(last.caught_at)}` : "עוד לא נתפס אף מוב. הלייב מתחיל בקרוב.";
@@ -245,6 +296,8 @@ function render() {
       b.className = "slot" + (m.caught ? " got" : "");
       b.setAttribute("aria-label", `${label(m)}, ${m.caught ? "נתפס" : "עוד לא נתפס"}`);
       if (selected === m.id) b.setAttribute("aria-current", "true");
+      b.insertAdjacentHTML("beforeend", `<span class="no">${dexNo(m)}</span>`);
+      if (m.caught) b.insertAdjacentHTML("beforeend", `<span class="mark">${BALL_SVG}</span>`);
       b.append(makeMob(m, !m.caught));
       b.insertAdjacentHTML("beforeend", `<span class="name" dir="ltr">${label(m)}</span>`);
       b.addEventListener("click", () => select(m.id));
@@ -260,6 +313,11 @@ function render() {
   if (cur) showTip(cur);
 }
 
+// Mobdex number: position in the master list, fixed for the whole stream.
+function dexNo(m) {
+  return "#" + String(state.mobs.indexOf(m) + 1).padStart(3, "0");
+}
+
 function select(id) {
   selected = id;
   document.querySelectorAll(".slot[aria-current]").forEach(s => s.removeAttribute("aria-current"));
@@ -268,12 +326,12 @@ function select(id) {
 
 function showTip(m) {
   const tip = document.getElementById("tip");
-  const wing = m.wing === "nether" ? " · הנת'ר" : m.wing === "end" ? " · האנד" : "";
   tip.innerHTML = "";
   tip.append(makeMob(m, !m.caught));
   tip.insertAdjacentHTML("beforeend", `
-    <h3><bdi dir="ltr">${label(m)}</bdi></h3>
-    <p class="st ${m.caught ? "got" : ""}">${m.caught ? "נתפס " + ago(m.caught_at) : "עוד לא נתפס"}${wing}</p>
+    <h3><bdi dir="ltr"><span class="no">${dexNo(m)}</span>${label(m)}</bdi></h3>
+    <p class="badges"><span class="badge ${m.wing}">${WINGS[m.wing] || m.wing}</span><span class="badge t${m.tier}">${LEVEL[m.tier]}</span></p>
+    <p class="st ${m.caught ? "got" : ""}">${m.caught ? "נתפס " + ago(m.caught_at) : "עוד לא נתפס"}</p>
     <p class="how">איך תופסים: ${m.how}</p>`);
   tip.hidden = false;
 }

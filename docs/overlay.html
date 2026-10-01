@@ -86,13 +86,7 @@ if (params.get("scale")) document.documentElement.style.setProperty("--scale", p
 let seen = null, queue = [], playing = false;
 const demo = params.get("demo");
 
-// Pokeball, 12x12 pixel art drawn from scratch. K outline, R red, D red shade, H shine, W white, G white shade.
-const BALL = ["....KKKK....", "..KKRRRRKK..", ".KRRRRRRHRK.", ".KRRRRRRRRK.", "KDRRRKKRRRDK", "KKKKKWWKKKKK",
-  "KWWWWKKWWWWK", "KWWWWWWWWWGK", ".KWWWWWWWGK.", ".KGWWWWWGGK.", "..KKGGGGKK..", "....KKKK...."];
-const COL = { K: "#000", R: "#e3262e", D: "#a5121a", H: "#ff9a9a", W: "#fff", G: "#b8b8b8" };
-const ballSVG = '<svg viewBox="0 0 12 12" width="100%" height="100%" shape-rendering="crispEdges" aria-hidden="true">' +
-  BALL.flatMap((row, y) => [...row].map((c, x) => COL[c] ? `<rect x="${x}" y="${y}" width="1" height="1" fill="${COL[c]}"/>` : "")).join("") + "</svg>";
-document.querySelectorAll("[data-ball]").forEach(b => b.innerHTML = ballSVG);
+document.querySelectorAll("[data-ball]").forEach(b => b.innerHTML = BALL_SVG);
 const stage = document.getElementById("stage");
 const stars = [0, 60, 120, 180, 240, 300].map(a => {
   const s = document.createElement("span");
