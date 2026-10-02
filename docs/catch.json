@@ -2,8 +2,8 @@
  "title": "לתפוס את כולם",
  "site_url": "https://livour.github.io/unity-catch-em-all/",
  "channel_url": "https://www.youtube.com/@livourmana",
- "updated": "2026-10-02T19:18:50+00:00",
- "last_caught": "bat",
+ "updated": "2026-10-02T19:30:41+00:00",
+ "last_caught": "skeleton_horse",
  "mobs": [
   {
    "id": "cow",
@@ -856,8 +856,8 @@
     "#e5e5d8"
    ],
    "how": "מלכודת שלדים בסופת ברקים",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T19:30:41+00:00"
   },
   {
    "id": "zombie_villager",
