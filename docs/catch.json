@@ -2,8 +2,8 @@
  "title": "לתפוס את כולם",
  "site_url": "https://livour.github.io/unity-catch-em-all/",
  "channel_url": "https://www.youtube.com/@livourmana",
- "updated": "2026-10-02T19:30:41+00:00",
- "last_caught": "skeleton_horse",
+ "updated": "2026-10-02T19:52:12+00:00",
+ "last_caught": "sheep",
  "mobs": [
   {
    "id": "cow",
@@ -44,8 +44,8 @@
     "#ffb5b5"
    ],
    "how": "רצועה או חיטה ביד",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T19:52:12+00:00"
   },
   {
    "id": "chicken",
@@ -422,8 +422,8 @@
     "#74a332"
    ],
    "how": "לבנות אחד",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T19:52:11+00:00"
   },
   {
    "id": "snow_golem",
@@ -492,8 +492,8 @@
     "#a80e0e"
    ],
    "how": "בור או סירה, תג שם",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T19:52:11+00:00"
   },
   {
    "id": "cave_spider",
