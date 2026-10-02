@@ -2,8 +2,8 @@
  "title": "לתפוס את כולם",
  "site_url": "https://livour.github.io/unity-catch-em-all/",
  "channel_url": "https://www.youtube.com/@livourmana",
- "updated": "2026-10-02T20:25:44+00:00",
- "last_caught": "snow_golem",
+ "updated": "2026-10-02T20:28:41+00:00",
+ "last_caught": "wolf",
  "mobs": [
   {
    "id": "cow",
@@ -184,8 +184,8 @@
     "#ceaf96"
    ],
    "how": "לאלף עם עצם ולהושיב",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T20:28:41+00:00"
   },
   {
    "id": "fox",
