@@ -2,8 +2,8 @@
  "title": "לתפוס את כולם",
  "site_url": "https://livour.github.io/unity-catch-em-all/",
  "channel_url": "https://www.youtube.com/@livourmana",
- "updated": "2026-10-02T19:58:55+00:00",
- "last_caught": "cow",
+ "updated": "2026-10-02T20:23:33+00:00",
+ "last_caught": "zoglin",
  "mobs": [
   {
    "id": "cow",
@@ -30,8 +30,8 @@
     "#db635f"
    ],
    "how": "רצועה או גזר ביד",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T20:23:33+00:00"
   },
   {
    "id": "sheep",
@@ -898,8 +898,8 @@
     "#e6e6e6"
    ],
    "how": "להביא הוגלין דרך פורטל",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T20:23:33+00:00"
   },
   {
    "id": "enderman",
