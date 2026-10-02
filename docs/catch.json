@@ -2,8 +2,8 @@
  "title": "לתפוס את כולם",
  "site_url": "https://livour.github.io/unity-catch-em-all/",
  "channel_url": "https://www.youtube.com/@livourmana",
- "updated": "2026-09-30T10:14:44+00:00",
- "last_caught": null,
+ "updated": "2026-10-02T19:18:50+00:00",
+ "last_caught": "bat",
  "mobs": [
   {
    "id": "cow",
@@ -954,8 +954,8 @@
     "#0f0f0f"
    ],
    "how": "קופסה חשוכה מתחת ל-Y 63",
-   "caught": false,
-   "caught_at": null
+   "caught": true,
+   "caught_at": "2026-10-02T19:18:50+00:00"
   },
   {
    "id": "trader_llama",
